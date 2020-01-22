@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <!-- FIXME: v-if, v-else, v- = ""
+        * v-if, v-else는 형제 태그이면서 서로 인접해야함 (붙어있어야 함)
+        * v- = "" 따옴표 안은 자바스크립트 코드를 쓸수있음 & data나 methods
+        * v- -> vue가 관리한다.
+    -->
     <div id="root">
         <div v-if="liked">좋아요 눌렀음</div>
         <button v-else v-on:click='onClickButton'>Like</button>
