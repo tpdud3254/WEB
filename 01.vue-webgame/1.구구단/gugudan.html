@@ -14,23 +14,41 @@
         * 데이터 중심의 사고, 어떤게 바뀌는지 잘봐야함 -> 그것이 바로 data
         * 데이터를 변경하면 화면은 vue가 자동으로 바꿔준다.
         * this. 은 data를 가르킨다고 생각하면 됨 (console.log(this); 찍어보기)
+        * 태그에 직접 접근해야 할때 ref="answer" 이런식으로 써줌 (vue에서는 해당 input을 answer라고 칭함)
+            - 너무 남용하면 안되고 이 경우에는 입력버튼 누르고 나서 사용자 편의를 위해 커서를 inputbox에 놓으려고 하는 특수한 경우라 값이 변하는것이 아니기때문에 사용
+            - 예를들어 this.$refs.answer.value = '123'; 이런식으로 코드를 입력하면 데이터가 바뀌는것이아닌 화면만 바뀌는 것이기 때문에 데이터와 화면이 불일치하게 됨
     -->
     <div id="root">
-        <div>곱하기 는?</div>
-        <form>
-            <input type="number">
-            <button>입력</button>
+        <div>{{first}}곱하기 {{second}}는?</div>
+        <form v-on:submit="onSubmitForm">
+            <input type="number" ref="answer" v-model="value">
+            <button type="submit">입력</button>
         </form>
-        <div></div>
+        <div id='result'>{{result}}</div>
     </div>
     <script>
         const app = new Vue({
             el: '#root',
             data: {
-
+                first: Math.ceil(Math.random() * 9),
+                second: Math.ceil(Math.random() * 9),
+                value: '',
+                result: '',
             },
             methods: {
-
+                onSubmitForm(e) {
+                    e.preventDefault();
+                    console.log(this);
+                    if (this.first * this.second === parseInt(this.value)) {
+                        this.result = '정답';
+                        this.first = Math.ceil(Math.random() * 9);
+                        this.second = Math.ceil(Math.random() * 9);
+                    } else {
+                        this.result = '땡';
+                    }
+                    this.value = '';
+                    this.$refs.answer.focus();
+                },
             },
         });
     </script>
