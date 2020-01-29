@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>숫자 야구</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- FIXME: 웹팩, node.js, npm, package.json, webpack.config.js
+        * 웹팩을 사용하는 이유 : 각기 다른 자바스크립트를 로딩할 때, 
+            스크립트 로딩 순서와 해당 HTML에서 필요하지 않은 js 파일들까지 로딩하여 리소스 낭비가 생김. 
+            필요한 파일만 로딩하고 관리하고자 웹팩을 사용하게 됨.
+            -> node.js를 깔면 npm도 같이 깔림. npm : 남이 만들어둔 javascript코드를 가져다 쓸수있는 것. 
+                요즘엔 남이 만들어둔 js코드를 모아서 레고 조립하듯이 프로그래밍 하는 시대임
+        * node -v, npm -v : 버전확인
+        * npm 사용
+            cd .\01.vue-webgame\3.숫자야구\
+            npm init
+            package name: (3.숫자야구) number-baseball  (number-baseball입력)
+            그다음 계속 엔터
+            -> 이러면 해당 폴더에 package.json이라는 파일이 생김
+                내가 쓰는 남의 소스코드들이 여기에 정리가 됨
+                각각으 소스코드마다 버전이 있는데 실무를 하다보면 남의거쓰는게 몇백개 이러니까 이런거 버전관리하기가 어려움 그래서 정확히 기억하기 위해서 사용함
+        * npm 으로 뷰 설치 (더이상 스크립트 태그는 사용하지 않을것)
+            -> npm i vue or npm install vue
+        * npm 으로 웹팩 설치
+            -> npm i webpack webpack-cli -D : webpack, webpack-cli 두개의 패키지를 설치하는데 개발할때만 이 패키지들을 사용하겠다
+                (-D 대신 --save-dev 입력가능)
+        * package.json
+            "dependencies": {  -> 뷰는 개발할때나 배포할때나 둘다 사용
+                "vue": "^2.6.11"
+            },
+            "devDependencies": { -> -D 옵션의 영향, 이거두개는 개발할때만 필요한 보조도구
+                "webpack": "^4.41.5",
+                "webpack-cli": "^3.3.10"
+            }
+        * 남의 소스코드를 패키지라고 부른다.
+        * webpack.config.js : 웹팩에 대한 설정들을 적는 곳
+            module.exports = {
+                entry: {
+                    app: './main.js',
+                },
+                module: {
+                    rules: [{
+            
+                    }],
+                },
+                plugins: [],
+                output: {
+                    filename: '[name].js',
+                    path: './dist',
+                },
+            };
+            -> 이게 기본적인 구조라고 생각 하면 됨  
+    -->
+    <div id="root"></div>
+    <script src="./dist/app.js"></script>
+  </body>
+</html>

@@ -10,17 +10,35 @@
 </head>
 
 <body>
+    <!-- 
+        Gugudan.html의 복습 (넘어가도됨)
+    -->
     <div id="root">
-
+        <div>{{word}}</div>
+        <form v-on:submit="onSubmitForm">
+            <input type="text" v-model="value">
+            <button type="submit">입력!</button>
+        </form>
+        <div>{{result}}</div>
     </div>
     <script>
         const app = new Vue({
             el: '#root',
             data: {
-
+                word: '제로초',
+                result: '',
+                value: '',
             },
             methods: {
-
+                onSubmitForm(e) {
+                    e.preventDefault();
+                    if (this.word[this.word.length - 1] === this.value[0]) {
+                        this.result = '정답';
+                        this.word = this.value;
+                    } else {
+                        this.result = '땡';
+                    }
+                }
             },
         });
     </script>
