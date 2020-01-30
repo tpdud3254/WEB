@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <!--
+        FIXME: WEBPACK자동, 새로고침자동
+        * WEBPACK 빌드 자동으로 하려면 package.json > "scripts": { "build": "webpack --watch" },
+        * 새로고침 자동으로 하려면
+            1. npm i -D webpack-dev-server
+            2. package.json >
+                "scripts": {
+                    "build": "webpack --watch",
+                    "dev": "webpack-dev-server --hot" -> 추가
+                },
+                output에 publicPath: "/dist" 추가
+            3. npm run dev
+            4. localhost:8080 접속
+            dev-server의 장점 : 코드를 수정하고 파일을 저장하면
+      -->
     <div id="root"></div>
     <script src="./dist/app.js"></script>
   </body>
