@@ -48,6 +48,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const path = require("path"); //노드에서 제공하는 모듈
 //남의 코드 가져다 쓰는건 똑같은데 여기선 require이고 .vue에서는 import
 // -> 노드환경에서는 require vue환경에서는 import쓴다고 일단 생각해둬. 웹팩은 노드환경이니까 require
+// vue -> export default - import from 한세트 / 노드 -> require - module.exports 한 세트
 
 module.exports = {
     //노드의 모듈이란것을 만든것 (나중에 다시 설명)
