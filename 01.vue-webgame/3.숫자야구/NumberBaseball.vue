@@ -13,7 +13,8 @@
     </form>
     <div>시도: {{ tries.length }}</div>
     <ul>
-      <li v-for="t in tries" :key="t">
+      <li v-for="t in tries" :key="t.try">
+        <!--for문이 돌아가면 리스트가 여러개가 생김 key는 그 리스트 각각에 대해 고유한 값임, 키가 있어야 화면 다시 렌더링하고 그럴때 효율적으로 할수있음.-->
         <div>{{ t.try }}</div>
         <div>{{ t.result }}</div>
       </li>
